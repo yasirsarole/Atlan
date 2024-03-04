@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/atlan/static/css/main.368e8f7e.css",
+    "main.js": "/atlan/static/js/main.256493fa.js",
+    "index.html": "/atlan/index.html",
+    "main.368e8f7e.css.map": "/atlan/static/css/main.368e8f7e.css.map",
+    "main.256493fa.js.map": "/atlan/static/js/main.256493fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.368e8f7e.css",
+    "static/js/main.256493fa.js"
+  ]
+}
