@@ -68,9 +68,7 @@ const App = () => {
         />
         <Output outputData={memoizedOutputData} loader={loader} />
       </div>
-      {customerData && ordersData && (
-        <AvailableTables tables={[customerData, ordersData]} />
-      )}
+      <AvailableTables tables={[customerData, ordersData]} />
     </div>
   );
 };
