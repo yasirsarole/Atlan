@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "../components/Table/Table";
 
-const Output = ({ outputData, loader }) => {
+const Output = React.memo(({ outputData, loader }) => {
   return (
     <div>
       <span className="mb-[20px] inline-block underline font-bold text-lg">
@@ -24,6 +24,6 @@ const Output = ({ outputData, loader }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Output;

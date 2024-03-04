@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "../components/Table/Table";
 
-const AvailableTables = ({ tables }) => {
+const AvailableTables = React.memo(({ tables }) => {
   return (
     <div className="p-[20px] pr-0 border-[1px] rounded-md border-solid flex-1 border-black h-[calc(100vh-20px)]">
       <span className="mb-[20px] inline-block underline font-bold text-lg">
@@ -21,6 +21,6 @@ const AvailableTables = ({ tables }) => {
       </div>
     </div>
   );
-};
+});
 
 export default AvailableTables;

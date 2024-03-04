@@ -1,6 +1,6 @@
 import React from "react";
 
-const Input = ({ queries, onQueryChange, runSQLQueryHandler }) => {
+const Input = React.memo(({ queries, onQueryChange, runSQLQueryHandler }) => {
   return (
     <div className="mb-[20px]">
       <div className="flex mb-[20px] justify-between align-center">
@@ -27,6 +27,6 @@ const Input = ({ queries, onQueryChange, runSQLQueryHandler }) => {
       />
     </div>
   );
-};
+});
 
 export default Input;
