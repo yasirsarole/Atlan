@@ -1,3 +1,10 @@
+## JavaScript Framework
+
+`ReactJs ^18.2.0`
+
+### `Page Load Time`
+Total time needed to load all the request - 551ms
+
 ## Available Scripts
 
 In the project directory, you can run:
