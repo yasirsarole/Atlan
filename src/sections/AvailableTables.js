@@ -1,28 +1,61 @@
 import React from "react";
-import Table from "../components/Table/Table";
 
-const AvailableTables = React.memo(({ tables }) => {
-  return (
-    tables.every((table) => table) && (
-      <div className="p-[20px] pr-0 border-[1px] rounded-md border-solid flex-1 border-black h-[calc(100vh-20px)]">
-        <span className="mb-[20px] inline-block underline font-bold text-lg">
-          Available Tables
-        </span>
-        <div className="max-h-[calc(100%-40px)] overflow-auto pr-[20px]">
-          {tables.map((table) => {
-            return (
-              <div key={table.tableName}>
-                <span className="mb-[5px] inline-block text-base font-bold">
-                  {table.tableName}
-                </span>
-                <Table rowData={table.rowData} columnDefs={table.colDef} />
-              </div>
-            );
-          })}
+import Table from "../components/Table/Table";
+import CellActions from "../components/CellActions";
+
+const AvailableTables = React.memo(
+  ({ tables, onTableListClick, savedQueries }) => {
+    return (
+      tables.every((table) => table) && (
+        <div className="h-[100%] flex justify-between flex-col">
+          <div className="mb-[20px]">
+            <span className="mb-[20px] inline-block underline font-bold text-lg">
+              Available Tables
+            </span>
+            <ul>
+              {tables.map((table) => {
+                return (
+                  <li
+                    className="list-disc underline cursor-pointer hover:no-underline"
+                    key={table.tableName}
+                    onClick={() => onTableListClick(table.tableName)}
+                  >
+                    {table.tableName}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div>
+            <span className="block mb-[10px] block underline font-bold text-lg">
+              Saved Queries
+            </span>
+            {savedQueries ? (
+              <Table
+                rowData={Object.keys(savedQueries).map((queryName) => {
+                  return {
+                    "Query Name": queryName,
+                  };
+                })}
+                columnDefs={[
+                  { field: "Query Name", resizable: false },
+                  {
+                    field: "Actions",
+                    resizable: false,
+                    cellRenderer: CellActions,
+                  },
+                ]}
+              />
+            ) : (
+              <span className="text-sm">
+                Currently, there are no saved queries.
+              </span>
+            )}
+          </div>
         </div>
-      </div>
-    )
-  );
-});
+      )
+    );
+  }
+);
 
 export default AvailableTables;
